@@ -59,6 +59,18 @@ public static String getFutureDate(int days)
 }
 
 
+public static String getRandomStringvalue(int charLength)
+{
+	Random rnd = new Random();
+	String rndString="";
+	for(int i=0;i<charLength;i++) {
+		char c = (char) (rnd.nextInt(26) + 'a');
+		rndString=rndString+c;
+	}
+	
+	return rndString;
+	
+}
 
 public void captureScreenshot(String tc_Name)
 {

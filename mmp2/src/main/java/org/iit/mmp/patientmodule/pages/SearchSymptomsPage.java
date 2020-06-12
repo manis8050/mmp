@@ -4,7 +4,8 @@ package org.iit.mmp.patientmodule.pages;
 
 	import java.util.List;
 
-	import org.openqa.selenium.By;
+import org.iit.mmp.helper.HelperClass;
+import org.openqa.selenium.By;
 	import org.openqa.selenium.WebDriver;
 	import org.openqa.selenium.WebElement;
 
@@ -33,7 +34,9 @@ package org.iit.mmp.patientmodule.pages;
 		 */
 		public void searchSymptoms(WebDriver driver)
 		{
-			driver.findElement(searchlink).click();
+			HelperClass helpclassObj=new HelperClass(driver);
+			helpclassObj.moduleNavigation("Search Symptoms");
+		//	driver.findElement(searchlink).click();
 			String title=driver.getTitle();
 			System.out.println("Title of the page is:" +title);
 			if (title.contains("search Symptoms"))
@@ -58,10 +61,8 @@ package org.iit.mmp.patientmodule.pages;
 		Thread.sleep(2000);
         List<WebElement> sympRow = driver.findElements(rowData);
 		System.out.println("#### Row size is:######" + sympRow.size());
-		// WebElement e=driver.findElement(By.xpath("//tbody/tr/td[1]"));
 
-		// System.out.println("DP_Symptom:::" +DP_Symptoms +" actual symptom:::"
-		// +e.getText());
+
 		if (sympRow.size() == 3) {
 
 			System.out.println("Diagnosis data is displayed for your " +DP_Symptoms+ " symptom.");
